@@ -69,9 +69,11 @@ describe("Programmer", function(){
       let rubyConf = Conference.create({name: "Ruby Conf", keyNote: "Yukihiro Matsumoto"});
 
       matz.addConference(elixirConf);
-      matz.addConference(rubyConf);
+      expect(matz.get("conferenceTotal")).to.eq(1);
 
+      matz.addConference(rubyConf);
       expect(matz.get("conferenceTotal")).to.eq(2);
+
       expect(matz.get("itinerary")).to.eq("Matz is speaking at 2 conferences");
     });
 
